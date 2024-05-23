@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import json
 
 app = FastAPI()
 
@@ -17,131 +18,13 @@ app.add_middleware(
 
 @app.get('/api/get-latest-news')
 async def getLatestNews():
+    with open("dummyDB.json", "r") as f:
+        database = json.load(f)
+    
     latestNews = {
         "status": 200,
         "message": [],
-        "data": [
-            {
-                "id": "00001",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00002",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00003",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00004",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00005",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00006",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00007",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00008",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00009",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            },
-            {
-                "id": "00010",
-                "title": "Pengakuan Sopir Terpaksa Menabrakkan Bus SMK Lingga Kencana Depok ke Tiang Listrik Saat Kecelakaan Maut di Subang, Jika Tak Dilakukan...",
-                "image_url": "https://thumb.tvonenews.com/thumbnail/2024/05/14/66426db4bad50-kondisi-bus-rombongan-smk-lingga-kencana-depok-yang-alami-kecelakaan-maut-di-wilayah-subang-jawa-barat_1265_711.jpg",
-                "liked": False,
-                "original_url": "https://www.tvonenews.com/berita/nasional/209899-pengakuan-sopir-terpaksa-menabrakkan-bus-smk-lingga-kencana-depok-ke-tiang-listrik-saat-kecelakaan-maut-di-subang-jika-tak-dilakukan",
-                "tag": [
-                    "News",
-                    "Nasional",
-                ],
-                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            }
-        ],
+        "data": database["database"],
         "pagination": {
             "page": 0,
             "total_items": 10,
