@@ -8,13 +8,13 @@ app = FastAPI()
 async def root():
     return {"status": 200, "message": ["Server is Running!"]}
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],
-#     allow_credentials=True,
-#     allow_methods=["GET", "POST"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
 
 @app.get('/api/get-latest-news')
 async def getLatestNews():
@@ -31,3 +31,7 @@ async def getLatestNews():
         }
     }
     return latestNews
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app.app:app", host="0.0.0.0", reload=True)
